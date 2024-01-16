@@ -14,3 +14,14 @@ Drawing is fun! Drawing alone is less fun. Connect with the world in Retro Rendi
 Here's a sequence diagram showing how to people can interact with the backend to draw.
 
 ![Sequence diagram](SequenceDiagram.jpg)
+
+### Key Features
+
+- Secure login over HTTPS
+- Ability to choose what color you're using
+- Ability to change the color of a square in the global grid
+- Display the grid, including everyone's changes in realtime
+- Ability to save the board as an image
+- Shows people joining and changing the board in realtime
+- Simple chat functionality
+- Global board is stored persistantly
