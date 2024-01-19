@@ -5,3 +5,8 @@ Git saves older versions of your work. First you add, putting changes on the sta
 
 -- GITHUB --
 Github allows you to put your work online, for everyone to access and to collaborate. Push sends your work to github, and pull brings it down.
+
+-- AWS EC2 --
+IP Address: 34.193.21.60
+Remote Shell Command: ssh -i [key pair file] ubuntu@34.193.21.60
+Domain Name: Ran into some problems with account validation, should updated this soon
