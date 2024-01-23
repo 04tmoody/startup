@@ -12,4 +12,6 @@ Remote Shell Command: ssh -i [key pair file] ubuntu@34.193.21.60
 Domain Name: Ran into some problems with account validation, used namecheap.com to register retrorenditions.click
 
 -- CADDY --
-Coming Soon...
+Caddy creates a certificate to secure my website
+HTTP -> HTTPS
+Allows it to be accessed only through retrorenditions.click simon.retrorenditions.click and startup.retrorenditions.click
