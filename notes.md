@@ -19,5 +19,5 @@ Allows it to be accessed only through retrorenditions.click simon.retrorendition
 -- CONSOLE --  
 Learned different commands in the console, nothing too new for me  
 
--- HTML --
+-- HTML --  
 Learned about structure, media, inputs, nothing too new for me  
