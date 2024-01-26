@@ -15,3 +15,9 @@ Domain Name: Ran into some problems with account validation, used namecheap.com 
 Caddy creates a certificate to secure my website  
 HTTP -> HTTPS  
 Allows it to be accessed only through retrorenditions.click simon.retrorenditions.click and startup.retrorenditions.click  
+  
+-- CONSOLE --  
+Learned different commands in the console, nothing too new for me  
+
+-- HTML --
+Learned about structure, media, inputs, nothing too new for me  
