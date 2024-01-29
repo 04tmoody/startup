@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Renditions</title>
+    <link rel="icon" href="logo.png" />
+  </head>
+  <body>
+    <!-- Header, Main, and Footer -->
+    <header>
+        <!-- Nav bar -->
+        <nav>
+          <!-- Menu -->
+          <menu>
+            <li><a href="index.html"><img src="fulllogo.png" width="200"></a></li>
+            <li style="display:none">
+                <!-- Board Settings Form -->
+                <form class="settings">
+                    <label for="color">Color:</label>
+                    <input type="color" id="color" name="color" value="#ff0000">
+                    <label for="grid">Grid:</label>
+                    <input type="checkbox" id="grid" name="grid" checked>
+                </form>
+            </li>
+            <li>
+                <!-- Login Form -->
+                <form class="login" action="index.html" method="get">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" placeholder="Password" name="password" required>
+                    <input type="submit" value="Login">
+                </form>
+                <a href="join.html"><i>Or Create Account</i></a>
+            </li>
+          </menu>
+        </nav>
+        <hr />
+    </header>
+
+    <main>
+      
+    </main>
+
+    <footer>
+        <hr />
+        <!-- footer stuff here -->
+        <a href="about.html">About</a><br>
+        <span>Created by Travis Moody</span><br>
+        <a href="https://github.com/04tmoody/startup">GitHub</a><br>
+    </footer>
+  </body>
+</html>
