@@ -21,3 +21,6 @@ Learned different commands in the console, nothing too new for me
 
 -- HTML --  
 Learned about structure, media, inputs, nothing too new for me  
+
+-- SIMON HTML --  
+DEPLOY COMMAND: ./deployFiles.sh -k [key pair file] -h retrorenditions.click -s simon
