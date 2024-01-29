@@ -14,9 +14,18 @@
         <nav>
           <!-- Menu -->
           <menu>
-            <li><a href="index.html"><img src="fulllogo.png"></a></li>
-            <!-- Login Form -->
+            <li><a href="index.html"><img src="fulllogo.png" width="200"></a></li>
             <li>
+                <!-- Board Settings Form -->
+                <form class="settings">
+                    <label for="color">Color:</label>
+                    <input type="color" id="color" name="color" value="#ff0000">
+                    <label for="grid">Grid:</label>
+                    <input type="checkbox" id="grid" name="grid" checked>
+                </form>
+            </li>
+            <li>
+                <!-- Login Form -->
                 <form class="login" action="index.html" method="get">
                     <label for="username">Username:</label>
                     <input type="text" id="username" name="username" required>
@@ -35,6 +44,7 @@
     </main>
 
     <footer>
+        <hr />
         <!-- footer stuff here -->
         <a href="about.html">About</a>
     </footer>
