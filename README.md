@@ -40,3 +40,15 @@ I am going to use the required technologies in the following ways.
 - **DB/Login** - Store users, and the global board in database. Create new users and login existing users. Securely store credentials in database. Can't draw without being authenticated.
 - **WebSocket** - Push out simple broadcast such as joining, reaching coloring milestones, and simple chat.
 - **React** - Application ported to use the React web framework.
+  
+  
+### HTML deliverable  
+  
+For this deliverable I built out the structure of my application using HTML.  
+  
+- **HTML pages** - Three TML pages: One main one with the message log and main art board, one for creating an account and one with information on the project.  
+- **Links** - The login bar on all pages, and the create account button, automatically link to the main art board. The login bar also has an optional link to the create an account page. The logo in the top left of all pages links to the main art board. Additionally the footer links to my github and the about page.  
+- **Text** - The about page has text describing the project. The input forms for login, account creation, and the footer all use text as well. The message log utilizes text to display messages.  
+- **Images** - The site uses an image for a favicon, and as the logo in the top left of all pages.  
+- **DB/Login** - Input box and submit button for login. The art board represents data pulled from the database.  
+- **WebSocket** - The message log results represents the messages sent out from realtime interaction with the board.  
