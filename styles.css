@@ -5,6 +5,7 @@ body {
 header, footer {
     background-color: #e0e0e0;
     color: black;
+    font-family: "Press Start 2P";
 }
 
 img {
@@ -40,6 +41,13 @@ ul {
     text-align: center;
     border-bottom: 1px solid black;
     background-color: #eee;
+    font-family: Roboto, sans-serif;
+}
+
+i {
+    font-family: Roboto, sans-serif;
+    color: blue;
+    text-decoration: underline;
 }
 
 input[type="submit"] {
