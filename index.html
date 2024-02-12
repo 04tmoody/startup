@@ -9,13 +9,10 @@
 
     <link rel="stylesheet" href="styles.css" />
 
-     <!-- Include bootstrap CSS framework -->
-     <link
-     href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
-     rel="stylesheet"
-     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
-     crossorigin="anonymous"
-   />
+    <!-- Include Bootstrap Stuff and JQuery -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   </head>
   <body>
@@ -23,34 +20,39 @@
     <header>
         <!-- Nav bar -->
         <nav class="navbar navbar-default">
-          <!-- Menu -->
-          <menu class="container-fluid">
-            <li class="navbar-header">
-              <a href="index.html"><img src="fulllogo.png" width="200"></a>
-            </li>
-            <li class="nav navbar-nav">
-                <!-- Board Settings Form -->
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a style="padding: 0" class="navbar-brand" href="index.html"><img src="fulllogo.png" width="200"></a>
+            </div>
+            <ul class="navbar-form navbar-left">
+              <li>
                 <form class="settings">
-                    <label for="color">Color:</label>
-                    <input type="color" id="color" name="color" value="#ff0000">
-                    <label for="grid">Grid:</label>
-                    <input type="checkbox" id="grid" name="grid" checked>
+                  <label for="color">Color:</label>
+                  <input class='square' type="color" id="color" name="color" value="#ff0000">
+                  <label for="grid">Grid:</label>
+                  <input class='square' type="checkbox" id="grid" name="grid" checked>
                 </form>
-            </li>
-            <li  class="nav navbar-nav">
-                <!-- Login Form -->
-                <form class="login" action="index.html" method="get">
-                    <label for="username">Username:</label>
-                    <input type="text" placeholder="Username" id="username" name="username" required>
-                    <label for="password">Password:</label>
-                    <input type="password" placeholder="Password" name="password" required>
-                    <input type="submit" value="Login">
-                </form>
-                <a href="join.html"><i>Or Create Account</i></a>
-            </li>
-          </menu>
-        </nav>
-        <hr />
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Login <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <form class="login" action="index.html" method="get">
+                      <label for="username">Username:</label>
+                      <input type="text" placeholder="Username" id="username" name="username" required>
+                      <label for="password">Password:</label>
+                      <input type="password" placeholder="Password" name="password" required>
+                      <input type="submit" value="Login">
+                    </form>
+                  </li>
+                  <li><a href="join.html"><i>Or Create Account</i></a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav> 
     </header>
 
     <main>
