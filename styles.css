@@ -1,3 +1,12 @@
 body {
     background-color: #efefef;
 }
+
+header, footer {
+    background-color: #e0e0e0;
+    color: black;
+}
+
+img {
+    filter: drop-shadow(2px 2px 4px white);
+}
