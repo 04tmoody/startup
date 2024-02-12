@@ -35,3 +35,28 @@ ul {
   vertical-align: middle;
   background-color: white;
 }
+
+.login {
+    text-align: center;
+    border-bottom: 1px solid black;
+    background-color: #eee;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #04AA6D;
+    border: 1px solid #04AA6D;
+    border-radius: 4px;
+    color: white;
+    transition-duration: 0.4s;
+}
+  
+input[type="submit"]:hover {
+    background-color: white;
+    color: #04AA6D;
+}
+
+.login > input {
+    width: 80%
+}
