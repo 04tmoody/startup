@@ -21,35 +21,37 @@
   <body>
     <!-- Header, Main, and Footer -->
     <header>
-        <!-- Nav bar -->
-        <nav>
-          <!-- Menu -->
-          <menu>
-            <li><a href="index.html"><img src="fulllogo.png" width="200"></a></li>
-            <li style="display:none">
-                <!-- Board Settings Form -->
-                <form class="settings">
-                    <label for="color">Color:</label>
-                    <input type="color" id="color" name="color" value="#ff0000">
-                    <label for="grid">Grid:</label>
-                    <input type="checkbox" id="grid" name="grid" checked>
-                </form>
-            </li>
-            <li>
-                <!-- Login Form -->
-                <form class="login" action="index.html" method="get">
-                    <label for="username">Username:</label>
-                    <input type="text" placeholder="Username" id="username" name="username" required>
-                    <label for="password">Password:</label>
-                    <input type="password" placeholder="Password" name="password" required>
-                    <input type="submit" value="Login">
-                </form>
-                <a href="join.html"><i>Or Create Account</i></a>
-            </li>
-          </menu>
-        </nav>
-        <hr />
-    </header>
+      <!-- Nav bar -->
+      <nav class="navbar navbar-default">
+        <!-- Menu -->
+        <menu class="container-fluid">
+          <li class="navbar-header">
+            <a href="index.html"><img src="fulllogo.png" width="200"></a>
+          </li>
+          <li class="nav navbar-nav" style="display:none">
+              <!-- Board Settings Form -->
+              <form class="settings">
+                  <label for="color">Color:</label>
+                  <input type="color" id="color" name="color" value="#ff0000">
+                  <label for="grid">Grid:</label>
+                  <input type="checkbox" id="grid" name="grid" checked>
+              </form>
+          </li>
+          <li  class="nav navbar-nav">
+              <!-- Login Form -->
+              <form class="login" action="index.html" method="get">
+                  <label for="username">Username:</label>
+                  <input type="text" placeholder="Username" id="username" name="username" required>
+                  <label for="password">Password:</label>
+                  <input type="password" placeholder="Password" name="password" required>
+                  <input type="submit" value="Login">
+              </form>
+              <a href="join.html"><i>Or Create Account</i></a>
+          </li>
+        </menu>
+      </nav>
+      <hr />
+  </header>
 
     <main>
       Retro Renditions is a website created by Travis Moody, a student at Brigham Young University for his CS260 class. Hope you enjoy it!

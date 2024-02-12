@@ -10,3 +10,7 @@ header, footer {
 img {
     filter: drop-shadow(2px 2px 4px white);
 }
+
+menu {
+    list-style-type: none;
+}
