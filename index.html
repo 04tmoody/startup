@@ -59,14 +59,25 @@
         </nav> 
     </header>
 
-    <main>
-      <span id="username">User: PabloPicasso</span>
-      <div id="message log" style="border: solid black 1px">
-        <li>PabloPicasso joined</li>
-        <li>Epic_Dragon made 100 edits. Congrats!</li>
-        <li>PabloPicasso made their first edit</li>
+    <main class="container">
+      <div id="sidebar">
+        <span id="username">User: PabloPicasso</span>
+        <div id="message-log">
+          <ul style="list-style-type: none; padding: 0;" id="messages">
+            <li>PabloPicasso joined</li>
+            <li>Epic_Dragon made 100 edits. Congrats!</li>
+            <li>PabloPicasso made their first edit</li>
+            <script>
+              log = document.getElementById("messages");
+              samples = ["PabloPicasso joined","Epic_Dragon made 100 edits. Congrats!","PabloPicasso made their first edit"];
+              for (let i=0; i<40; i++) {
+                log.innerHTML += "<li>" + samples[i%3] + "</li>"
+              }
+            </script>
+          </ul>
+        </div>
       </div>
-      <canvas id="canvas" style="border: solid black 1px">
+      <canvas id="canvas"></canvas>
     </main>
 
     <footer>

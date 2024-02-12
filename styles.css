@@ -68,3 +68,31 @@ input[type="submit"]:hover {
 .login > input {
     width: 80%
 }
+
+.container {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+}
+#sidebar {
+    width: 300px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+#message-log {
+    border: solid black 1px;
+    margin-top: 10px;
+    height: 90%;
+    background-color: black;
+    color: white;
+    font-family: "Press Start 2P";
+    font-size: 8px;
+}
+#message-log > ul > li {
+    margin: 10px 5px;
+}
+#canvas {
+    flex: 1;
+    border: 1px solid black;
+}
