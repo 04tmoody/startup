@@ -127,6 +127,13 @@ footer {
 
 /* JOINING PAGE */
 
+.join-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 200px);
+}
+
 .join {
     background-color: #f0f0f088;
     border: 3px solid #e0e0e0f0;
@@ -134,4 +141,5 @@ footer {
     display: inline-block;
     max-width: max-content;
     padding: 120px 20px;
+    text-align: center;
 }
