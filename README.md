@@ -51,4 +51,16 @@ For this deliverable I built out the structure of my application using HTML.
 - **Text** - The about page has text describing the project. The input forms for login, account creation, and the footer all use text as well. The message log utilizes text to display messages.  
 - **Images** - The site uses an image for a favicon, and as the logo in the top left of all pages.  
 - **DB/Login** - Input box and submit button for login. The art board represents data pulled from the database.  
-- **WebSocket** - The message log results represents the messages sent out from realtime interaction with the board.  
+- **WebSocket** - The message log results represents the messages sent out from realtime interaction with the board.
+  
+  
+## CSS deliverable
+
+For this deliverable I properly styled the application into its final appearance.
+
+- **Header, footer, and main content body** - I used bootstrap to create a navbar and dropdown menu in the header, and flexboxes to center all my content and arrange everything how I wanted in the main body.
+- **Navigation elements** - I made all links blue and buttons green to highlight their functionality, and applies fonts to links in the footer to match the rest of it.
+- **Responsive to window resizing** - My app looks great on all window sizes and devices, responsive design from flexboxes and bootstrap
+- **Application elements** - Centered on page with matching colors and partially transparent backgrounds to flow better with the simple background.
+- **Application text content** - Consistent two fonts - One "fun" font for most text and a simpler one for smaller important text like the login information.
+- **Application images** - Application logo placed in the header to the side as a link to the home page, added an image of myself in the About section with rounded corners to make it a circle. Both images have a subtle drop-shadow to add depth.
