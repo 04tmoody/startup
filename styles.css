@@ -169,6 +169,13 @@ footer {
     padding: 50px 50px;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.about > img {
+    width: 30%;
+    margin: 20px;
+    border-radius: 50%;
 }
 
 p {
