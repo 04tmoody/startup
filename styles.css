@@ -145,6 +145,32 @@ footer {
     border-radius: 5%;
     display: inline-block;
     max-width: max-content;
-    padding: 120px 20px;
+    padding: 90px 20px;
+    text-align: center;
+}
+
+/* About Page */
+
+.about-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 200px);
+}
+
+.about {
+    font-family: "Press Start 2P";
+    background-color: #f0f0f088;
+    border: 3px solid #e0e0e0f0;
+    border-radius: 5%;
+    display: flex;
+    width: 400px;
+    height: 400px;
+    padding: 50px 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
     text-align: center;
 }
