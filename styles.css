@@ -83,6 +83,7 @@ input[type="submit"]:hover {
     background-color: #f0f0f088;
     padding: 20px;
     border-right: 1px solid #ddd;
+    height: 70vb;
     max-height: 70vb;
 }
 #message-log {
