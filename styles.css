@@ -125,6 +125,11 @@ footer {
     text-align: center;
 }
 
+.lined {
+    border-top: 1px solid #00000088;
+    border-bottom: 1px solid #00000088;
+}
+
 /* JOINING PAGE */
 
 .join-main {

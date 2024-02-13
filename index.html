@@ -77,13 +77,23 @@
       </div>
       <div id="canvas-container">
         <canvas id="canvas"></canvas>
+        <script>
+          c = document.getElementById("canvas")
+          ctx = c.getContext("2d");
+          ctx.fillStyle="#6488ea";
+          ctx.fillRect(0,0,c.width,c.height);
+          ctx.fillStyle="blue";
+          ctx.font = '24px "Press Start 2P"';
+          ctx.fillText("PLACEHOLDER",20,50);
+          ctx.fillText("TEXT",100,100);
+        </script>
       </div>
     </main>
 
     <footer class="footer">
         <!-- footer stuff here -->
         <a href="about.html">About</a><br>
-        <span>Created by Travis Moody</span><br>
+        <span class="lined">Created by Travis Moody</span><br>
         <a href="https://github.com/04tmoody/startup">GitHub</a><br>
     </footer>
   </body>
