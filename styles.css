@@ -2,6 +2,7 @@ body {
     background-color: #efefef;
     max-width: 100vw;
     max-height: 100vh;
+    background-image: url("sample.png");
 }
 
 header, footer {
