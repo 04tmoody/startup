@@ -14,8 +14,20 @@ function login(event) {
     }
 }
 
-const user = localStorage.getItem("username");
-if (user) {
-    document.querySelector("#login").style.display="none";
-    document.querySelector("#logout").style.display="block";
+document.querySelector("#logout").addEventListener('click', function(event) {
+    localStorage.clear();
+    window.location.href = window.location.href;
+});
+
+function updatePage() {
+    const user = localStorage.getItem("username");
+    if (user) {
+        document.querySelector("#login").style.display="none";
+        document.querySelector("#logout").style.display="block";
+    } else {
+        document.querySelector("#logout").style.display="none";
+        document.querySelector("#login").style.display="block";
+    }
 }
+
+updatePage();
