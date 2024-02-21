@@ -13,3 +13,9 @@ function login(event) {
         document.querySelector("#error").style.display="block";
     }
 }
+
+const user = localStorage.getItem("username");
+if (user) {
+    document.querySelector("#login").style.display="none";
+    document.querySelector("#logout").style.display="block";
+}
