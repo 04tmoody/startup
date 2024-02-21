@@ -54,7 +54,7 @@ i {
     text-decoration: underline;
 }
 
-input[type="submit"] {
+.submit {
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: #04AA6D;
@@ -64,12 +64,12 @@ input[type="submit"] {
     transition-duration: 0.4s;
 }
   
-input[type="submit"]:hover {
+.submit:hover {
     background-color: white;
     color: #04AA6D;
 }
 
-.login > input {
+.login > input, button {
     width: 80%
 }
 
