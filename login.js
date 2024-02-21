@@ -9,5 +9,7 @@ function login(event) {
     if (pass===correctPass) {
         localStorage.setItem("username", name);
         window.location.href = "index.html";
+    } else {
+        document.querySelector("#error").style.display="block";
     }
 }
