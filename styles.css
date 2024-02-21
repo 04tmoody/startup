@@ -131,6 +131,13 @@ footer {
     border-bottom: 1px solid #00000088;
 }
 
+.logout {
+    width: 150px;
+    padding-top: 15px;
+    border: none;
+    background-color: #00000000;
+}
+
 /* JOINING PAGE */
 
 .join-main {
