@@ -66,6 +66,9 @@
         <span id="yourname">Log In to Draw</span>
         <script>
           const name = localStorage.getItem('username');
+          if (name) {
+            document.querySelector("#yourname").textContent = "User: "+name;
+          }
         </script>
         <div id="message-log">
           <ul style="list-style-type: none; padding: 0;" id="messages">
