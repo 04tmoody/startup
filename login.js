@@ -2,8 +2,12 @@ function login(event) {
     event.preventDefault();
 
     const name = document.querySelector("#username").value;
+    // AUTHENTICATION PLACEHOLDER
+    const correctPass = name+"123";
+    // ---
     const pass = document.querySelector("#password").value;
-    console.log(name+" "+pass);
-    //localStorage.setItem("username", nameEl.value);
-    window.location.href = "index.html";
+    if (pass===correctPass) {
+        localStorage.setItem("username", name);
+        window.location.href = "index.html";
+    }
 }
