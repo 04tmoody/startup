@@ -54,7 +54,7 @@ For this deliverable I built out the structure of my application using HTML.
 - **WebSocket** - The message log results represents the messages sent out from realtime interaction with the board.
   
   
-## CSS deliverable
+### CSS deliverable
 
 For this deliverable I properly styled the application into its final appearance.
 
@@ -63,4 +63,14 @@ For this deliverable I properly styled the application into its final appearance
 - **Responsive to window resizing** - My app looks great on all window sizes and devices, responsive design from flexboxes and bootstrap
 - **Application elements** - Centered on page with matching colors and partially transparent backgrounds to flow better with the simple background.
 - **Application text content** - Consistent two fonts - One "fun" font for most text and a simpler one for smaller important text like the login information.
-- **Application images** - Application logo placed in the header to the side as a link to the home page, added an image of myself in the About section with rounded corners to make it a circle. Both images have a subtle drop-shadow to add depth.
+- **Application images** - Application logo placed in the header to the side as a link to the home page, added an image of myself in the About section with rounded corners to make it a circle. Both images have a subtle drop-shadow to add depth.  
+  
+  
+### Javascript deliverable  
+  
+For this deliverable I implemented by JavaScript so that the application works for a single user. I also added placeholders for future technology.
+
+- **login** - When you press login button it takes you to the main drawing page and displays the username, allowing you to draw.
+- **database** - Displays the drawing board. Currently this is stored and retrieved from local storage, but it will be replaced with the database data later.
+- **WebSocket** - I used the setInterval function to occasionally generate randomly messages from fake users. This will be replaced with WebSocket messages later.
+- **application logic** - The drawing board works by an entirely JS powered canvas that draws the board based on the data and detects when the user is drawing on the board.
