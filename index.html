@@ -76,14 +76,7 @@
         </script>
         <div id="message-log">
           <ul style="list-style-type: none; padding: 0;" id="messages">
-            <script>
-              log = document.getElementById("messages");
-              samples = ["PabloPicasso joined","Epic_Dragon made 100 edits. Congrats!","PabloPicasso made their first edit"];
-              colors = ["cyan","yellow","cyan","pink","lime","pink"]
-              for (let i=0; i<40; i++) {
-                log.innerHTML += "<li style='color:"+colors[i%6]+"''>" + samples[i%3] + "</li>"
-              }
-            </script>
+            <script src="log.js"></script>
           </ul>
         </div>
       </div>
