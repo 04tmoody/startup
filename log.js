@@ -1,5 +1,5 @@
 logEl = document.getElementById("messages");
-colors = ["magenta","pink","yellow","lime","cyan","lightgray","IndianRed","hotpink","LightSkyBlue","MediumPurple","Wheat","Orange"]
+colors = ["pink","cyan","magenta","yellow","lime","lightgray","IndianRed","hotpink","LightSkyBlue","MediumPurple","Wheat","Orange"]
 letters = "2VvcSujfiPOK-C7_D8rs5nomtxTXYUz0HgEyBaRIkpL6dJWeNwQ31MAZlh9bG4Fq";
 
 function StoN(string) {
@@ -13,5 +13,6 @@ function StoN(string) {
 function log(message,user) {
     logEl.innerHTML +=
     "<li style='color:"+colors[Math.floor(StoN(user)*colors.length)]+"''>" +
-    message + "</li>"
+    message + "</li>";
+    // Broadcast out
 }

@@ -2,10 +2,15 @@ c = document.getElementById("canvas");
 ctx = c.getContext("2d");
 
 const WIDTH = 25;
+let joined = false;
 
 function resize() {
     c.width = Math.min(window.innerWidth, window.innerHeight)*0.6;
     c.height = Math.min(window.innerWidth, window.innerHeight)*0.6;
+}
+
+function draw() {
+    // Check if we're clicking any new squares and fill them in
 }
 
 function render() {
@@ -24,8 +29,15 @@ function render() {
 }
 
 function main() {
+    let user = localStorage.getItem("username");
+    if (!joined && user) {
+        log(user+" joined!",user);
+        joined = true;
+    }
+    draw();
     resize();
     render();
     requestAnimationFrame(main);
 }
+
 requestAnimationFrame(main);
