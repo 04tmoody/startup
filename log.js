@@ -19,9 +19,9 @@ function log(message,user) {
 
 // Websocket mock data
 setInterval(() => {
-    let mockNames = ["PabloPicasso","Epic_Dragon77","asdkajdlkajn","-DrawingBoard-"];
+    let mockNames = ["PabloPicasso","Epic_Dragon77","asdkajdlkajn","-DrawingKing-"];
     let name = mockNames[Math.floor(Math.random()*mockNames.length)];
-    let mockMessages = ["joined","made their first edit","made 100 edits! Congrats!","made 1000 edits! Holy Guacamole!"];
+    let mockMessages = ["joined","made their first edit","made 100 edits! Congrats!","made 1000 edits! Holy Guacamole!","used the Eyedropper (hold the [i] key)"];
     let msg = mockMessages[Math.floor(Math.random()*mockMessages.length)];
     log(msg,name);
   }, 5000);

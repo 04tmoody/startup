@@ -6,6 +6,10 @@ let joined = localStorage.getItem("joined");
 if (joined) joined = (joined === "true");
 if (!joined) joined = false;
 
+let eyed = localStorage.getItem("eyed");
+if (eyed) eyed = (eyed === "true");
+if (!eyed) eyed = false;
+
 let mouseX = -1;
 let mouseY = -1;
 var mouseDown = false;
@@ -27,6 +31,16 @@ c.addEventListener('mousedown', function(event) {
 
 document.addEventListener('mouseup', function(event) {
     mouseDown = false;
+});
+
+let eye = false;
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'i') eye = true;
+});
+
+document.addEventListener('keyup', function(event) {
+    if (event.key === 'i') eye = false;
 });
 
 let board;
@@ -60,6 +74,15 @@ function draw() {
     const brush = document.getElementById("color").value;
     const color = board[y][x];
     if (brush!=color) {
+        if (eye) {
+            document.getElementById("color").value = color;
+            if (!eyed) {
+                log("used the Eyedropper (hold the [i] key)",user);
+                eyed = true;
+                localStorage.setItem("eyed",true);
+            }
+            return;
+        }
         if (edits==0) {
             log("made their first edit",user);
         } else if (edits==99) {
