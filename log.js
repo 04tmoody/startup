@@ -12,7 +12,7 @@ function StoN(string) {
 
 function log(message,user) {
     logEl.innerHTML +=
-    "<li style='color:"+colors[Math.floor(StoN(user)*colors.length)]+"''>" +
-    message + "</li>";
+    "<li><span style='color:"+colors[Math.floor(StoN(user)*colors.length)]+"''>" +
+    user + "</span> " + message + "</li>";
     // Broadcast out
 }

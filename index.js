@@ -8,6 +8,10 @@ let mouseX = -1;
 let mouseY = -1;
 var mouseDown = false;
 
+let edits = 0;
+
+let user;
+
 c.addEventListener('mousemove', function(event) {
     mouseX = event.clientX - c.getBoundingClientRect().left;
     mouseY = event.clientY - c.getBoundingClientRect().top;
@@ -28,7 +32,7 @@ function loadBoard(size) {
     for (let y=0; y<size; y++) {
         let row = [];
         for (let x=0; x<size; x++) {
-            row.push("ffffff");
+            row.push("#ffffff");
         }
         b.push(row);
     }
@@ -49,6 +53,14 @@ function draw() {
     const brush = document.getElementById("color").value;
     const color = board[y][x];
     if (brush!=color) {
+        if (edits==0) {
+            log("made their first edit!",user);
+        } else if (edits==99) {
+            log("made 100 edits! Congrats!",user);
+        } else if (edits==999) {
+            log("made 1000 edits! Holy Guacamole!",user);
+        }
+        edits += 1;
         board[y][x] = brush;
     }
 }
@@ -64,19 +76,21 @@ function render() {
     for (let x=0; x<WIDTH; x++) {
         for (let y=0; y<WIDTH; y++) {
             ctx.fillStyle = board[y][x];
-            ctx.fillRect(x*sizex,y*sizey,sizex,sizey);
+            ctx.fillRect(x*sizex,y*sizey,sizex+1,sizey+1);
             if (grid) ctx.strokeRect(x*sizex,y*sizey,sizex,sizey);
         }
     }
 }
 
 function main() {
-    let user = localStorage.getItem("username");
+    user = localStorage.getItem("username");
     if (!joined && user) {
-        log(user+" joined!",user);
+        log("joined!",user);
         joined = true;
     }
-    draw();
+    if (user) {
+        draw();
+    }
     resize();
     render();
     requestAnimationFrame(main);
