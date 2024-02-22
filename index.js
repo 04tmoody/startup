@@ -4,7 +4,8 @@ ctx = c.getContext("2d");
 const WIDTH = 25;
 let joined = false;
 
-var mouseX, mouseY;
+let mouseX = -1;
+let mouseY = -1;
 var mouseDown = false;
 
 c.addEventListener('mousemove', function(event) {
@@ -12,7 +13,7 @@ c.addEventListener('mousemove', function(event) {
     mouseY = event.clientY - c.getBoundingClientRect().top;
 });
 
-document.addEventListener('mousedown', function(event) {
+c.addEventListener('mousedown', function(event) {
     mouseDown = true;
 });
 
@@ -20,19 +21,36 @@ document.addEventListener('mouseup', function(event) {
     mouseDown = false;
 });
 
+let board = loadBoard(WIDTH);
+
+function loadBoard(size) {
+    let b = [];
+    for (let y=0; y<size; y++) {
+        let row = [];
+        for (let x=0; x<size; x++) {
+            row.push("ffffff");
+        }
+        b.push(row);
+    }
+    return b;
+}
+
 function resize() {
     c.width = Math.min(window.innerWidth, window.innerHeight)*0.6;
     c.height = Math.min(window.innerWidth, window.innerHeight)*0.6;
 }
 
-c.addEventListener
-
 function draw() {
-    // Check if we're clicking any new squares and fill them in
+    const sizex = c.width/WIDTH;
+    const sizey = c.height/WIDTH;
+    let x = Math.floor(mouseX/sizex);
+    let y = Math.floor(mouseY/sizey);
+    const brush = document.getElementById("color").value;
+    const color = board[y][x];
 }
 
 function render() {
-    grid = document.getElementById("grid").checked;
+    const grid = document.getElementById("grid").checked;
 
     ctx.fillStyle = "white";
     ctx.fillRect(0,0,c.width,c.height);
