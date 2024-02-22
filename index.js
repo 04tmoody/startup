@@ -112,6 +112,16 @@ function render() {
             if (grid) ctx.strokeRect(x*sizex,y*sizey,sizex,sizey);
         }
     }
+    if (!user) {
+        ctx.globalAlpha = 0.8;
+        ctx.fillStyle = "black";
+        ctx.fillRect(c.width*0.2,c.height*0.3,c.width*0.6,c.height*0.4);
+        ctx.fillStyle = "white";
+        ctx.font = "bold 30px Arial";
+        ctx.textAlign = 'center';
+        ctx.fillText("Login to Edit!",c.width*0.5,c.height*0.5);
+        ctx.globalAlpha = 1.0;
+    }
 }
 
 function main() {
