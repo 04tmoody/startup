@@ -29,7 +29,10 @@ document.addEventListener('mouseup', function(event) {
     mouseDown = false;
 });
 
-let board = loadBoard(WIDTH);
+let board;
+let boardText = localStorage.getItem("board");
+if (boardText) board = JSON.parse(boardText);
+if (!boardText) board = loadBoard(WIDTH);
 
 function loadBoard(size) {
     let b = [];
@@ -58,7 +61,7 @@ function draw() {
     const color = board[y][x];
     if (brush!=color) {
         if (edits==0) {
-            log("made their first edit!",user);
+            log("made their first edit",user);
         } else if (edits==99) {
             log("made 100 edits! Congrats!",user);
         } else if (edits==999) {
@@ -67,6 +70,7 @@ function draw() {
         edits += 1;
         localStorage.setItem("edits",edits);
         board[y][x] = brush;
+        localStorage.setItem("board",JSON.stringify(board));
     }
 }
 
@@ -89,7 +93,7 @@ function render() {
 
 function main() {
     if (!joined && user) {
-        log("joined!",user);
+        log("joined",user);
         localStorage.setItem("joined",true);
         joined = true;
     }
