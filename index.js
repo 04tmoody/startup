@@ -120,6 +120,9 @@ function render() {
         ctx.font = "bold 30px Arial";
         ctx.textAlign = 'center';
         ctx.fillText("Login to Edit!",c.width*0.5,c.height*0.5);
+        ctx.font = "15px Arial";
+        ctx.fillText("Username: name",c.width*0.5,c.height*0.6);
+        ctx.fillText("Password: name123",c.width*0.5,c.height*0.65);
         ctx.globalAlpha = 1.0;
     }
 }
