@@ -45,8 +45,12 @@ function draw() {
     const sizey = c.height/WIDTH;
     let x = Math.floor(mouseX/sizex);
     let y = Math.floor(mouseY/sizey);
+    if (!mouseDown || x<0 || x>=WIDTH || y<0 || y>=WIDTH) return
     const brush = document.getElementById("color").value;
     const color = board[y][x];
+    if (brush!=color) {
+        board[y][x] = brush;
+    }
 }
 
 function render() {
@@ -57,9 +61,11 @@ function render() {
 
     const sizex = c.width/WIDTH;
     const sizey = c.height/WIDTH;
-    for (let x=0; x<c.width; x+=sizex) {
-        for (let y=0; y<c.height; y+=sizey) {
-            if (grid) ctx.strokeRect(x,y,sizex,sizey);
+    for (let x=0; x<WIDTH; x++) {
+        for (let y=0; y<WIDTH; y++) {
+            ctx.fillStyle = board[y][x];
+            ctx.fillRect(x*sizex,y*sizey,sizex,sizey);
+            if (grid) ctx.strokeRect(x*sizex,y*sizey,sizex,sizey);
         }
     }
 }
