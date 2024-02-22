@@ -3,15 +3,16 @@ ctx = c.getContext("2d");
 
 const WIDTH = 25;
 let joined = localStorage.getItem("joined");
-if (!joined) {
-    joined = false;
-}
+if (joined) joined = (joined === "true");
+if (!joined) joined = false;
 
 let mouseX = -1;
 let mouseY = -1;
 var mouseDown = false;
 
-let edits = 0;
+let edits = localStorage.getItem("edits");
+if (edits) edits = parseInt(edits);
+if (!edits) edits = 0;
 
 let user = localStorage.getItem("username");
 
@@ -64,6 +65,7 @@ function draw() {
             log("made 1000 edits! Holy Guacamole!",user);
         }
         edits += 1;
+        localStorage.setItem("edits",edits);
         board[y][x] = brush;
     }
 }
