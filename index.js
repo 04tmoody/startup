@@ -2,7 +2,10 @@ c = document.getElementById("canvas");
 ctx = c.getContext("2d");
 
 const WIDTH = 25;
-let joined = false;
+let joined = localStorage.getItem("joined");
+if (!joined) {
+    joined = false;
+}
 
 let mouseX = -1;
 let mouseY = -1;
@@ -10,7 +13,7 @@ var mouseDown = false;
 
 let edits = 0;
 
-let user;
+let user = localStorage.getItem("username");
 
 c.addEventListener('mousemove', function(event) {
     mouseX = event.clientX - c.getBoundingClientRect().left;
@@ -83,9 +86,9 @@ function render() {
 }
 
 function main() {
-    user = localStorage.getItem("username");
     if (!joined && user) {
         log("joined!",user);
+        localStorage.setItem("joined",true);
         joined = true;
     }
     if (user) {
