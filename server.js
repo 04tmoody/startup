@@ -22,13 +22,13 @@ app.use(`/api`, apiRouter);
 
 // GetBoard
 apiRouter.get('/board', (_req, res) => {
-    res.send(board);
+    res.send(JSON.stringify(board));
 });
 
 // SetBoard
 apiRouter.post('/board', (req, res) => {
     board = updateBoard(req.body, board)
-    res.send(board);
+    res.send(JSON.stringify(board));
 });
 
 // loadBoard creates a new empty board

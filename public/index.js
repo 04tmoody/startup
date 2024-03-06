@@ -44,9 +44,20 @@ document.addEventListener('keyup', function(event) {
 });
 
 let board;
-let boardText = localStorage.getItem("board");
-if (boardText) board = JSON.parse(boardText);
-if (!boardText) board = loadBoard(WIDTH);
+async function getBoardData() {
+    try {
+      const response = await fetch('/api/board');
+      const boardText = await response.json();
+      localStorage.setItem('board', boardText);
+    } catch (error) {
+      console.error('Error fetching board data:', error);
+  
+      let boardText = localStorage.getItem("board");
+    }
+    if (boardText) board = JSON.parse(boardText);
+    if (!boardText) board = loadBoard(WIDTH);
+  }
+  getBoardData(); // Call the async function to execute the code
 
 function loadBoard(size) {
     let b = [];
@@ -138,11 +149,25 @@ function render() {
     }
 }
 
+const UPDATE_INTERVAL = 1000;
+
 function main() {
     if (!joined && user) {
         log("joined",user);
         localStorage.setItem("joined",true);
         joined = true;
+    }
+    // Call the API to get the current board periodically
+    if (performance.now() - lastBoardUpdate >= UPDATE_INTERVAL) {
+        fetch('api/board')
+        .then(response => JSON.parse(response))
+        .then(data => {
+            board = data;
+        })
+        .catch(error => {
+            console.error('Error fetching board:', error);
+        });
+        lastBoardUpdate = performance.now();
     }
     if (user) {
         draw();
