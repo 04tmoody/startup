@@ -26,8 +26,8 @@ apiRouter.get('/board', (_req, res) => {
 });
 
 // SetBoard
-apiRouter.put('/board', (_req, res) => {
-    board = parseBoard(req.body)
+apiRouter.post('/board', (req, res) => {
+    board = updateBoard(req.body, board)
     res.send(board);
 });
 
@@ -56,5 +56,6 @@ function updateBoard(change,board) {
     } catch (error) {
         console.log("Bad Input");
     }
+    return board;
 
 }
