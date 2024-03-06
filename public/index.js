@@ -43,21 +43,22 @@ document.addEventListener('keyup', function(event) {
     if (event.key === 'i') eye = false;
 });
 
-let board;
+let board = loadBoard(WIDTH);
 async function getBoardData() {
+    let boardText;
     try {
       const response = await fetch('/api/board');
-      const boardText = await response.json();
-      localStorage.setItem('board', boardText);
+      board = await response.json();
+      localStorage.setItem('board', JSON.stringify(board));
     } catch (error) {
       console.error('Error fetching board data:', error);
   
-      let boardText = localStorage.getItem("board");
+      boardText = localStorage.getItem("board");
+      if (boardText) board = JSON.parse(boardText);
+      if (!boardText) board = loadBoard(WIDTH);
     }
-    if (boardText) board = JSON.parse(boardText);
-    if (!boardText) board = loadBoard(WIDTH);
   }
-  getBoardData(); // Call the async function to execute the code
+getBoardData(); // Call the async function to execute the code
 
 function loadBoard(size) {
     let b = [];
@@ -106,12 +107,11 @@ function draw() {
         board[y][x] = brush;
         localStorage.setItem("board",JSON.stringify(board));
         // asyncronously call a post request to api/board with a body of x,y,color
+        const data = {x:x, y:y, color:brush};
         fetch('api/board', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: x+","+y+","+color
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(data),
           })
           .catch(error => {
             console.error('Error sending board update:', error);
@@ -150,7 +150,7 @@ function render() {
 }
 
 const UPDATE_INTERVAL = 1000;
-
+let lastBoardUpdate = performance.now();
 function main() {
     if (!joined && user) {
         log("joined",user);
@@ -160,7 +160,7 @@ function main() {
     // Call the API to get the current board periodically
     if (performance.now() - lastBoardUpdate >= UPDATE_INTERVAL) {
         fetch('api/board')
-        .then(response => JSON.parse(response))
+        .then(response => response.json())
         .then(data => {
             board = data;
         })

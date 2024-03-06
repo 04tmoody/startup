@@ -2,6 +2,24 @@
 const express = require('express');
 const app = express();
 
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+
+// Router for service endpoints
+var apiRouter = express.Router();
+app.use(`/api`, apiRouter);
+
+// GetBoard
+apiRouter.get('/board', (_req, res) => {
+    res.send(board);
+});
+
+// SetBoard
+apiRouter.post('/board', (req, res) => {
+    board = updateBoard(req.body, board)
+    res.send(board);
+});
+
 // Serve up public files
 app.use(express.static('public'));
 
@@ -14,21 +32,6 @@ app.listen(port, () => {
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });
-});
-
-// Router for service endpoints
-var apiRouter = express.Router();
-app.use(`/api`, apiRouter);
-
-// GetBoard
-apiRouter.get('/board', (_req, res) => {
-    res.send(JSON.stringify(board));
-});
-
-// SetBoard
-apiRouter.post('/board', (req, res) => {
-    board = updateBoard(req.body, board)
-    res.send(JSON.stringify(board));
 });
 
 // loadBoard creates a new empty board
@@ -48,13 +51,13 @@ function loadBoard(size) {
 let board = loadBoard(25);
 function updateBoard(change,board) {
     try {
-        change = change.split(",");
-        x = parseInt(change[0]);
-        y = parseInt(change[1]);
-        color = change[2];
+        //change = JSON.parse(change);
+        x = change.x;
+        y = change.y;
+        color = change.color;
         board[y][x] = color;
     } catch (error) {
-        console.log("Bad Input");
+        console.log("Bad Input: "+change);
     }
     return board;
 
