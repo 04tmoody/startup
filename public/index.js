@@ -94,6 +94,17 @@ function draw() {
         localStorage.setItem("edits",edits);
         board[y][x] = brush;
         localStorage.setItem("board",JSON.stringify(board));
+        // asyncronously call a post request to api/board with a body of x,y,color
+        fetch('api/board', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: x+","+y+","+color
+          })
+          .catch(error => {
+            console.error('Error sending board update:', error);
+        });
     }
 }
 
