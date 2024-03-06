@@ -9,11 +9,11 @@ Drawing is fun! Drawing alone is less fun. Connect with the world in Retro Rendi
 
 ### Design
 
-![Design](StartupDesign.jpg)
+![Design](public/StartupDesign.jpg)
 
 Here's a sequence diagram showing how to people can interact with the backend to draw.
 
-![Sequence diagram](SequenceDiagram.jpg)
+![Sequence diagram](public/SequenceDiagram.jpg)
 
 ### Key Features
 
