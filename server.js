@@ -15,3 +15,7 @@ app.listen(port, () => {
 app.use((_req, res) => {
     res.sendFile('index.html', { root: 'public' });
 });
+
+// Router for service endpoints
+var apiRouter = express.Router();
+app.use(`/api`, apiRouter);
