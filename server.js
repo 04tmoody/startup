@@ -46,6 +46,15 @@ function loadBoard(size) {
 
 // The board is saved in memory and disappears when the service restarts
 let board = loadBoard(25);
-function parseBoard(str) {
-    
+function updateBoard(change,board) {
+    try {
+        change = change.split(",");
+        x = parseInt(change[0]);
+        y = parseInt(change[1]);
+        color = change[2];
+        board[y][x] = color;
+    } catch (error) {
+        console.log("Bad Input");
+    }
+
 }
