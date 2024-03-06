@@ -20,6 +20,17 @@ app.use((_req, res) => {
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
+// GetBoard
+apiRouter.get('/board', (_req, res) => {
+    res.send(board);
+});
+
+// SetBoard
+apiRouter.put('/board', (_req, res) => {
+    board = parseBoard(req.body)
+    res.send(board);
+});
+
 // loadBoard creates a new empty board
 function loadBoard(size) {
     let b = [];
@@ -35,3 +46,6 @@ function loadBoard(size) {
 
 // The board is saved in memory and disappears when the service restarts
 let board = loadBoard(25);
+function parseBoard(str) {
+    
+}
