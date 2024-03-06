@@ -74,3 +74,15 @@ For this deliverable I implemented by JavaScript so that the application works f
 - **database** - Displays the drawing board. Currently this is stored and retrieved from local storage, but it will be replaced with the database data later.
 - **WebSocket** - I used the setInterval function to occasionally generate randomly messages from fake users. This will be replaced with WebSocket messages later.
 - **application logic** - The drawing board works by an entirely JS powered canvas that draws the board based on the data and detects when the user is drawing on the board.
+  
+  
+### Service deliverable
+
+For this deliverable I added backend endpoints that receives updates to the board and returns the current board.
+
+- **Node.js/Express HTTP service** - Done!
+- **Static middleware for frontend** - Done!
+- **Calls to third party endpoints** - Calls a [colored noise API]([url](https://php-noise.com/)) to create random backgrounds.
+- **Backend service endpoints** - Endpoints for receiving updates to the board and processing them, as well as returning the current board.
+- **Frontend calls service endpoints** - I called the above endpoints using the fetch function.
+
