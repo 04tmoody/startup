@@ -133,6 +133,15 @@ apiRouter.get('/board', async (_req, res) => {
 // Serve up public files
 app.use(express.static('public'));
 
+// setAuthCookie in the HTTP response
+function setAuthCookie(res, authToken) {
+    res.cookie(authCookieName, authToken, {
+      secure: true,
+      httpOnly: true,
+      sameSite: 'strict',
+    });
+  }
+
 // Listen on port
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 app.listen(port, () => {
