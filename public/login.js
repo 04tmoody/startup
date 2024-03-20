@@ -23,7 +23,7 @@ if (response.ok) {
     localStorage.setItem("username", username);
     window.location.href = "index.html";
 } else {
-    document.querySelector("#error").style.display="block";
+    document.querySelector("#error"+num).style.display="block";
 }
 }
 
