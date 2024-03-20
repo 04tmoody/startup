@@ -27,6 +27,11 @@ function loadBoard(size) {
   return b;
 }
 
-let board = loadBoard(25);
+function init_board() {
+  let board = loadBoard(25);
+  boardCollection.insertOne({"id":1, "board":board});
+}
 
-boardCollection.insertOne({"id":1, "board":board});
+function update_board(board) {
+  boardCollection.updateOne({id:1},board)
+}
