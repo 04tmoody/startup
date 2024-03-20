@@ -5,6 +5,8 @@ const app = express();
 // Import Database Code
 const DB = require('./database.js');
 
+app.use(express.json());
+
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
