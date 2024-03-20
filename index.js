@@ -73,7 +73,7 @@ apiRouter.get('/user/:name', async (req, res) => {
   
   // secureApiRouter verifies credentials for endpoints
   var secureApiRouter = express.Router();
-  apiRouter.use(secureApiRouter);
+  //apiRouter.use(secureApiRouter);
   
   secureApiRouter.use(async (req, res, next) => {
     authToken = req.cookies[authCookieName];
@@ -119,7 +119,7 @@ apiRouter.get('/board', async (_req, res) => {
   });
   
   // SetBoard
-  apiRouter.post('/board', async (req, res) => {
+  secureApiRouter.post('/board', async (req, res) => {
     try {
       const updatedBoard = updateBoard(req.body, board);
       await DB.updateBoard(1, updatedBoard);
