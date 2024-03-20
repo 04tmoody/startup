@@ -84,6 +84,9 @@ async function start() {
 start();
 
 module.exports = {
+  getUser,
+  getUserByToken,
+  createUser,
   getBoard,
   updateBoard
 };
