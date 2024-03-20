@@ -1,16 +1,16 @@
 async function login(event) {
     event.preventDefault();
-    loginOrCreate(`/api/auth/login`);
+    loginOrCreate(`/api/auth/login`,"");
 }
 
 async function create(event) {
     event.preventDefault();
-    loginOrCreate(`/api/auth/create`);
+    loginOrCreate(`/api/auth/create`,"2");
 }
 
-async function loginOrCreate(endpoint) {
-    const username = document.querySelector('#username')?.value;
-    const password = document.querySelector('#password')?.value;
+async function loginOrCreate(endpoint,num="") {
+    const username = document.querySelector('#username'+num)?.value;
+    const password = document.querySelector('#password'+num)?.value;
     const response = await fetch(endpoint, {
         method: 'post',
         body: JSON.stringify({ name: username, password: password }),
@@ -20,7 +20,7 @@ async function loginOrCreate(endpoint) {
 });
 
 if (response.ok) {
-    localStorage.setItem("username", name);
+    localStorage.setItem("username", username);
     window.location.href = "index.html";
 } else {
     document.querySelector("#error").style.display="block";
