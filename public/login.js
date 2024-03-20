@@ -1,8 +1,10 @@
-async function loginUser() {
+async function login(event) {
+    event.preventDefault();
     loginOrCreate(`/api/auth/login`);
 }
 
-async function createUser() {
+async function create(event) {
+    event.preventDefault();
     loginOrCreate(`/api/auth/create`);
 }
 
@@ -25,26 +27,28 @@ if (response.ok) {
 }
 }
 
-function login(event) {
-    event.preventDefault();
-
-    const name = document.querySelector("#username").value;
-    // AUTHENTICATION PLACEHOLDER
-    const correctPass = name+"123";
-    // ---
-    const pass = document.querySelector("#password").value;
-    if (pass===correctPass) {
-        localStorage.setItem("username", name);
-        window.location.href = "index.html";
-    } else {
-        document.querySelector("#error").style.display="block";
-    }
+function logout() {
+    localStorage.removeItem('userName');
+    fetch(`/api/auth/logout`, {
+      method: 'delete',
+    }).then(() => (window.location.href = '/'));
 }
 
 document.querySelector("#logout").addEventListener('click', function(event) {
     localStorage.clear();
-    window.location.href = window.location.href;
+    fetch(`/api/auth/logout`, {
+        method: 'delete',
+    }).then(() => (window.location.href = '/'));
 });
+
+async function getUser(name) {
+    // See if we have a user with the given email.
+    const response = await fetch(`/api/user/${name}`);
+    if (response.status === 200) {
+      return response.json();
+    }
+    return null;
+}
 
 function updatePage() {
     const user = localStorage.getItem("username");
