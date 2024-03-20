@@ -85,4 +85,15 @@ For this deliverable I added backend endpoints that receives updates to the boar
 - **Calls to third party endpoints** - Calls a [colored noise API]([url](https://php-noise.com/)) to create random backgrounds.
 - **Backend service endpoints** - Endpoints for receiving updates to the board and processing them, as well as returning the current board.
 - **Frontend calls service endpoints** - I called the above endpoints using the fetch function.
+  
+  
+### DB/Login deliverable
 
+For this deliverable I allow users to create accounts and login, and I stored the Board in the database.
+
+- **MongoDB Atlas database created** - done!
+- **Stores data in MongoDB** - done!
+- **User registration** - Creates a new account in the database.
+- **existing user** - Does not allow an account to be created if the user already exists.
+- **Use MongoDB to store credentials** - Stores both users and the board.
+- **Restricts functionality** - You cannot edit the board until you have logged in. This is checked on the backend.
