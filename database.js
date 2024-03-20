@@ -36,8 +36,8 @@ function getBoard(id) {
   return boardCollection.findOne({ id:id });
 }
 
-function updateBoard(board,id) {
-  boardCollection.updateOne({id:id},board)
+function updateBoard(id,board) {
+  boardCollection.updateOne({id:id},{ $set: { board:board } })
 }
 
 module.exports = {

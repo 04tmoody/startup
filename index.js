@@ -21,7 +21,7 @@ function loadBoard(size) {
     return b;
 }
 
-let board = loadBoard(25);
+let board = DB.getBoard().board //loadBoard(25);
 
 // Router for service endpoints
 var apiRouter = express.Router();
@@ -29,12 +29,14 @@ app.use(`/api`, apiRouter);
 
 // GetBoard
 apiRouter.get('/board', (_req, res) => {
+    board = DB.getBoard().board
     res.send(board);
 });
 
 // SetBoard
 apiRouter.post('/board', (req, res) => {
-    board = updateBoard(req.body, board)
+    board = updateBoard(req.body, board);
+    DB.updateBoard(1,board);
     res.send(board);
 });
 
