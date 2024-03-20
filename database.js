@@ -27,11 +27,20 @@ function loadBoard(size) {
   return b;
 }
 
-function init_board() {
+function initBoard() {
   let board = loadBoard(25);
   boardCollection.insertOne({"id":1, "board":board});
 }
 
-function update_board(board) {
-  boardCollection.updateOne({id:1},board)
+function getBoard(id) {
+  return boardCollection.findOne({ id:id });
 }
+
+function updateBoard(board,id) {
+  boardCollection.updateOne({id:id},board)
+}
+
+module.exports = {
+  getBoard,
+  updateBoard
+};
