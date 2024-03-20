@@ -60,6 +60,8 @@ async function getBoardData() {
   }
 getBoardData(); // Call the async function to execute the code
 
+let recentEdits = [];
+
 function loadBoard(size) {
     let b = [];
     for (let y=0; y<size; y++) {
@@ -108,6 +110,10 @@ function draw() {
         localStorage.setItem("board",JSON.stringify(board));
         // asyncronously call a post request to api/board with a body of x,y,color
         const data = {x:x, y:y, color:brush};
+        recentEdits.push(data);
+        setTimeout(() => {
+            recentEdits.splice(0, 1);
+        }, 2000);
         fetch('api/board', {
             method: 'POST',
             headers: {'content-type': 'application/json'},
@@ -130,6 +136,10 @@ function render() {
     for (let x=0; x<WIDTH; x++) {
         for (let y=0; y<WIDTH; y++) {
             ctx.fillStyle = board[y][x];
+            const recent = recentEdits.find(object => object.x === x && object.y === y);
+            if (recent) {
+                ctx.fillStyle = recent.color;
+            }
             ctx.fillRect(x*sizex,y*sizey,sizex+1,sizey+1);
             if (grid) ctx.strokeRect(x*sizex,y*sizey,sizex,sizey);
         }
