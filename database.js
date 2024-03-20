@@ -29,4 +29,4 @@ function loadBoard(size) {
 
 let board = loadBoard(25);
 
-boardCollection.insertOne({"board":board});
+boardCollection.insertOne({"id":1, "board":board});
