@@ -72,7 +72,7 @@ function updateBoard(id,board) {
 async function start() {
   try {
     b = await getBoard(1);
-    if (!b.board) {
+    if (!b.board || b.board.length==0) {
       initBoard();
     }
   }
