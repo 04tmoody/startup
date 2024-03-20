@@ -21,24 +21,41 @@ function loadBoard(size) {
     return b;
 }
 
-let board = DB.getBoard().board //loadBoard(25);
+let board = [];
+
+async function loadBoard() {
+    boardObj = await DB.getBoard(1) //loadBoard(25);
+    board = boardObj.board;
+}
+
+loadBoard();
 
 // Router for service endpoints
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // GetBoard
-apiRouter.get('/board', (_req, res) => {
-    board = DB.getBoard().board
-    res.send(board);
-});
-
-// SetBoard
-apiRouter.post('/board', (req, res) => {
-    board = updateBoard(req.body, board);
-    DB.updateBoard(1,board);
-    res.send(board);
-});
+apiRouter.get('/board', async (_req, res) => {
+    try {
+      const board = await DB.getBoard(1);
+      res.send(board.board);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ message: "Error fetching board" });
+    }
+  });
+  
+  // SetBoard
+  apiRouter.post('/board', async (req, res) => {
+    try {
+      const updatedBoard = updateBoard(req.body, board);
+      await DB.updateBoard(1, updatedBoard);
+      res.send(updatedBoard);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ message: "Error updating board" });
+    }
+  });
 
 // Serve up public files
 app.use(express.static('public'));

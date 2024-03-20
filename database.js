@@ -29,7 +29,11 @@ function loadBoard(size) {
 
 function initBoard() {
   let board = loadBoard(25);
-  boardCollection.insertOne({"id":1, "board":board});
+  try {
+    updateBoard(1,board);
+  } catch {
+    boardCollection.insertOne({"id":1, "board":board});
+  }
 }
 
 function getBoard(id) {
@@ -39,6 +43,20 @@ function getBoard(id) {
 function updateBoard(id,board) {
   boardCollection.updateOne({id:id},{ $set: { board:board } })
 }
+
+async function start() {
+  try {
+    b = await getBoard(1);
+    if (!b.board) {
+      initBoard();
+    }
+  }
+  catch {
+    initBoard();
+  }
+}
+
+start();
 
 module.exports = {
   getBoard,
