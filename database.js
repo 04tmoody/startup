@@ -5,7 +5,7 @@ const config = require('./dbConfig.json');
 
 const url = `mongodb+srv://${config.userName}:${config.password}@${config.hostname}`;
 const client = new MongoClient(url);
-const db = client.db('rental');
+const db = client.db('board');
 const boardCollection = db.collection('board');
 
 (async function testConnection() {
@@ -16,12 +16,19 @@ const boardCollection = db.collection('board');
   process.exit(1);
 });
 
-function getSquare(x,y) {
-  return boardCollection.findOne({ x:x, y:y });
+// loadBoard creates a new empty board
+function loadBoard(size) {
+  let b = [];
+  for (let y=0; y<size; y++) {
+      let row = [];
+      for (let x=0; x<size; x++) {
+          row.push("#ffffff");
+      }
+      b.push(row);
+  }
+  return b;
 }
 
-async function setSquare(x, y, color) {
-  const filter = { x:x, y:y };
-  const update = { $set: { color: color } };
-  await scoreCollection.updateOne(filter, update);
-}
+let board = loadBoard(25);
+
+boardCollection.insertOne(board);
