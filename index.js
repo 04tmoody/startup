@@ -165,7 +165,7 @@ function setAuthCookie(res, authToken) {
 
 // Listen on port
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
 
@@ -188,3 +188,5 @@ function updateBoard(change,board) {
     return board;
 
 }
+
+peerProxy(httpService);
