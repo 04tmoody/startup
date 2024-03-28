@@ -124,13 +124,32 @@ loadBoard();
   secureApiRouter.post('/board', async (req, res) => {
     try {
       const updatedBoard = updateBoard(req.body, board);
-      await DB.updateBoard(1, updatedBoard);
+      board = updatedBoard;
+      // Check for periodic database update
+      if (shouldUpdateDatabase()) {
+        try {
+          await DB.updateBoard(1, updatedBoard);
+        } catch (dbError) {
+          console.error("Error updating database:", dbError);
+        }
+        updateLastUpdateTime(); // Reset last update time
+      }
       res.send(updatedBoard);
     } catch (error) {
       console.error(error);
       res.status(500).send({ message: "Error updating board" });
     }
   });
+  
+  // Helper functions for tracking last update time
+  let lastUpdateTime = Date.now();
+  function shouldUpdateDatabase() {
+    const fiveMinutesAgo = Date.now() - (5 * 60 * 1000); // 5 minutes in milliseconds
+    return lastUpdateTime <= fiveMinutesAgo;
+  }
+  function updateLastUpdateTime() {
+    lastUpdateTime = Date.now();
+  }
 
 // Serve up public files
 app.use(express.static('public'));
