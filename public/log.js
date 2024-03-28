@@ -10,11 +10,65 @@ function StoN(string) {
     return Math.abs(total%1);
 }
 
+
 function log(message,user) {
     logEl.innerHTML +=
     "<li><span style='color:"+colors[Math.floor(StoN(user)*colors.length)]+"''>" +
     user + "</span> " + message + "</li>";
-    // Broadcast out
+}
+
+function configureWebSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    sock = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    sock.onopen = () => {
+        console.log("WebSocket connection established!");
+    }
+    sock.onmessage = async (event) => {
+      const msg = JSON.parse(await event.data.text());
+      if (msg.from=="edit") {
+        updateBoard();
+      } else {
+        log(msg.msg, msg.from);
+      };
+    }
+    return sock
+}
+
+const socket = configureWebSocket();
+
+  function sendLog(message,user) {
+    log(message,user);
+    broadcastMessage(socket,user,message);
+}
+
+  function broadcastMessage(socket, from, msg) {
+    if (socket.readyState === WebSocket.OPEN) {
+        const event = {
+          from: from,
+          msg: msg,
+        };
+        socket.send(JSON.stringify(event));
+      } else {
+        console.error("WebSocket connection is not open. Trying again in 1 second.");
+        setTimeout(() => broadcastMessage(socket,from,msg), 1000);
+      }
+  }
+
+  function sendEdit(edit) {
+    broadcastEdit(socket,edit);
+}
+
+function broadcastEdit(socket,edit) {
+    if (socket.readyState === WebSocket.OPEN) {
+        const event = {
+            from: "edit",
+            msg: edit,
+        };
+        socket.send(JSON.stringify(event));
+    } else {
+        console.error("WebSocket connection is not open. Trying again in 1 second.");
+        setTimeout(() => broadcastEdit(socket,edit), 1000);
+    }
 }
 
 // Websocket mock data
