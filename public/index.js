@@ -91,18 +91,18 @@ function draw() {
         if (eye) {
             document.getElementById("color").value = color;
             if (!eyed) {
-                log("used the Eyedropper (hold the [i] key)",user);
+                sendLog("used the Eyedropper (hold the [i] key)",user);
                 eyed = true;
                 localStorage.setItem("eyed",true);
             }
             return;
         }
         if (edits==0) {
-            log("made their first edit",user);
+            sendLog("made their first edit",user);
         } else if (edits==99) {
-            log("made 100 edits! Congrats!",user);
+            sendLog("made 100 edits! Congrats!",user);
         } else if (edits==999) {
-            log("made 1000 edits! Holy Guacamole!",user);
+            sendLog("made 1000 edits! Holy Guacamole!",user);
         }
         edits += 1;
         localStorage.setItem("edits",edits);
@@ -118,6 +118,9 @@ function draw() {
             method: 'POST',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(data),
+          })
+          .then(response => {
+            sendEdit(data)
           })
           .catch(error => {
             console.error('Error sending board update:', error);
@@ -158,25 +161,22 @@ function render() {
     }
 }
 
-const UPDATE_INTERVAL = 1000;
-let lastBoardUpdate = performance.now();
+function updateBoard() {
+    fetch('api/board')
+    .then(response => response.json())
+    .then(data => {
+        board = data;
+    })
+    .catch(error => {
+        console.error('Error fetching board:', error);
+    });
+}
+
 function main() {
     if (!joined && user) {
-        log("joined",user);
+        sendLog("joined",user);
         localStorage.setItem("joined",true);
         joined = true;
-    }
-    // Call the API to get the current board periodically
-    if (performance.now() - lastBoardUpdate >= UPDATE_INTERVAL) {
-        fetch('api/board')
-        .then(response => response.json())
-        .then(data => {
-            board = data;
-        })
-        .catch(error => {
-            console.error('Error fetching board:', error);
-        });
-        lastBoardUpdate = performance.now();
     }
     if (user) {
         draw();
