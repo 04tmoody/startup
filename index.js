@@ -75,8 +75,9 @@ apiRouter.get('/user/:name', async (req, res) => {
   // GetBoard
 apiRouter.get('/board', async (_req, res) => {
     try {
-      const board = await DB.getBoard(1);
-      res.send(board.board);
+      //const board = await DB.getBoard(1);
+      //res.send(board.board);
+      res.send(board);
     } catch (error) {
       console.error(error);
       res.status(500).send({ message: "Error fetching board" });
