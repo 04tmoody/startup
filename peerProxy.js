@@ -1,8 +1,6 @@
 const { WebSocketServer } = require('ws');
 const uuid = require('uuid');
 
-
-
 function peerProxy(httpServer) {
     // Create a websocket object
     const wss = new WebSocketServer({ noServer: true });
