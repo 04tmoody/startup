@@ -88,12 +88,23 @@ For this deliverable I added backend endpoints that receives updates to the boar
   
   
 ### DB/Login deliverable
-
+  
 For this deliverable I allow users to create accounts and login, and I stored the Board in the database.
-
+  
 - **MongoDB Atlas database created** - done!
 - **Stores data in MongoDB** - done!
 - **User registration** - Creates a new account in the database.
 - **existing user** - Does not allow an account to be created if the user already exists.
 - **Use MongoDB to store credentials** - Stores both users and the board.
 - **Restricts functionality** - You cannot edit the board until you have logged in. This is checked on the backend.
+
+  
+### WebSocket deliverable
+
+For this deliverable I used webSocket to update the votes on the frontend in realtime.
+
+- **Backend listens for WebSocket connection** - done!
+- **Frontend makes WebSocket connection** - done!
+- **Data sent over WebSocket connection** - Both log messages of joining/making x amount of edits/etc are sent.
+- **WebSocket data displayed** - All log messages are displayed in realtime. The board fetches the current board in realtime when an edit is made.
+- **Celebrated with Cheese** - done!
