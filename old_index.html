@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tell browsers not to scale the viewport automatically -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retro Renditions</title>
+    <link rel="icon" href="logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Include Bootstrap Stuff and JQuery -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <!-- Header, Main, and Footer -->
+    <header>
+        <!-- Nav bar -->
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a style="padding: 0" class="navbar-brand" href="index.html"><img src="fulllogo.png" width="200"></a>
+            </div>
+            <ul class="navbar-form navbar-left">
+              <li>
+                <form class="settings">
+                  <label for="color">Color:</label>
+                  <input class='square' type="color" id="color" name="color" value="#ff0000">
+                  <label for="grid">Grid:</label>
+                  <input class='square' type="checkbox" id="grid" name="grid" checked>
+                </form>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" id="login">
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Login <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <form class="login" action="index.html" method="get" onsubmit="login(event)">
+                      <label for="username">Username:</label>
+                      <input type="text" placeholder="Username" id="username" name="username" required>
+                      <label for="password">Password:</label>
+                      <input type="password" placeholder="Password" id="password" name="password" required>
+                      <p id="error" style="padding: 0; margin: 0; font-size: 11px; color:red; display:none;">Invalid Username/Password</p>
+                      <button type="submit" class="submit">Login</button>
+                    </form>
+                  </li>
+                  <li><a href="join.html"><i>Or Create Account</i></a></li>
+                </ul>
+              </li>
+            </ul>
+            <button class="nav navbar-nav navbar-right logout" id="logout" style="display:none">
+              Logout
+            </button>
+          </div>
+        </nav> 
+    </header>
+
+    <script src="login.js"></script>
+
+    <main class="container">
+      <div id="sidebar">
+        <span id="yourname">Log In to Draw</span>
+        <script>
+          const name = localStorage.getItem('username');
+          if (name) {
+            document.querySelector("#yourname").textContent = "User: "+name;
+          }
+        </script>
+        <div id="message-log">
+          <ul style="list-style-type: none; padding: 0;" id="messages">
+            <li>Message Log<br>-----------</li>
+            <script src="log.js"></script>
+          </ul>
+        </div>
+      </div>
+      <div id="canvas-container">
+        <canvas id="canvas" width="400px" height="400px"></canvas>
+      </div>
+    </main>
+
+    <script src="index.js"></script>
+    <script src="bg.js"></script>
+
+    <footer class="footer">
+        <!-- footer stuff here -->
+        <a href="about.html">About</a><br>
+        <span class="lined">Created by Travis Moody</span><br>
+        <a href="https://github.com/04tmoody/startup">GitHub</a><br>
+    </footer>
+  </body>
+</html>
