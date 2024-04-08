@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 import RetroHeader from './retroheader';
+import RetroFooter from './retrofooter';
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
 
         <RetroHeader />
         App will display here
+        <RetroFooter />
     
     </div>
   );

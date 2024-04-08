@@ -13,10 +13,10 @@ export default function RetroHeader() {
                 <ul className="navbar-form navbar-left">
                 <li>
                     <form className="settings">
-                    <label for="color">Color:</label>
-                    <input className='square' type="color" id="color" name="color" value="#ff0000" />
-                    <label for="grid">Grid:</label>
-                    <input className='square' type="checkbox" id="grid" name="grid" checked />
+                    <label htmlFor="color">Color:</label>
+                    <input className='square' type="color" id="color" name="color" defaultValue="#ff0000" />
+                    <label htmlFor="grid">Grid:</label>
+                    <input className='square' type="checkbox" id="grid" name="grid" defaultChecked />
                     </form>
                 </li>
                 </ul>
@@ -25,10 +25,10 @@ export default function RetroHeader() {
                     <a className="dropdown-toggle" data-toggle="dropdown" href="#">Login <span className="caret"></span></a>
                     <ul className="dropdown-menu">
                     <li>
-                        <form className="login" action="index.html" method="get" onsubmit="login(event)">
-                        <label for="username">Username:</label>
+                        <form className="login" action="index.html" method="get" onSubmit={login(event)}>
+                        <label htmlFor="username">Username:</label>
                         <input type="text" placeholder="Username" id="username" name="username" required />
-                        <label for="password">Password:</label>
+                        <label htmlFor="password">Password:</label>
                         <input type="password" placeholder="Password" id="password" name="password" required />
                         <p id="error" style={{padding: 0, margin: 0, fontSize: "11px", color:"red", display:"none"}}>Invalid Username/Password</p>
                         <button type="submit" className="submit">Login</button>
