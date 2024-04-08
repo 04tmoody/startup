@@ -10,6 +10,22 @@ import { About } from './about';
 
 export default function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [backgroundURI, setBackgroundURI] = useState('sample.png');
+
+  useEffect(() => {
+    fetch('https://php-noise.com/noise.php?hex=${hex}&json')
+      .then(response => response.json())
+      .then(data => {
+        const img = new Image();
+        img.onload = () => {
+          setBackgroundURI(data.uri);
+        };
+        img.onerror = () => {
+          console.error("Error loading image:", data.uri);
+        };
+        img.src = data.uri;
+      });
+  }, []);
 
     useEffect(() => {
         // Function to check localStorage and update isLoggedIn state
@@ -32,7 +48,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-    <div className='body'>
+    <div className='body' style={{backgroundImage: `url('${backgroundURI}')`}}>
 
         <RetroHeader isLoggedIn={isLoggedIn}/>
         
