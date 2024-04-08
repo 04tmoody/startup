@@ -1,8 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
+import './login.js';
 
-export default function RetroHeader() {
+export default function RetroHeader({isLoggedIn}) {
     return (
         <header>
             <nav className="navbar navbar-default">
@@ -20,7 +21,7 @@ export default function RetroHeader() {
                     </form>
                 </li>
                 </ul>
-                <ul className="nav navbar-nav navbar-right" id="login">
+                <ul className="nav navbar-nav navbar-right" id="login" style={{display: isLoggedIn ? "none" : "block"}}>
                 <li className="dropdown">
                     <a className="dropdown-toggle" data-toggle="dropdown" href="#">Login <span className="caret"></span></a>
                     <ul className="dropdown-menu">
@@ -38,7 +39,7 @@ export default function RetroHeader() {
                     </ul>
                 </li>
                 </ul>
-                <button className="nav navbar-nav navbar-right logout" id="logout" style={{display:"none"}}>
+                <button className="nav navbar-nav navbar-right logout" id="logout" style={{display: isLoggedIn ? "none" : "block"}}>
                 Logout
                 </button>
             </div>
