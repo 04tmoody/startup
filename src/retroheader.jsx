@@ -85,7 +85,7 @@ export function RetroHeader({ isLoggedIn }) {
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <NavLink style={{ padding: 0 }} className="navbar-brand" to="main">
+                        <NavLink style={{ padding: 0 }} className="navbar-brand" to="/">
                             <img src="fulllogo.png" width="200" alt="Logo" />
                         </NavLink>
                     </div>
@@ -113,7 +113,7 @@ export function RetroHeader({ isLoggedIn }) {
                                         <button type="submit" className="submit">Login</button>
                                     </form>
                                 </li>
-                                <li><a href="join.html"><i>Or Create Account</i></a></li>
+                                <li><NavLink to="join"><i>Or Create Account</i></NavLink></li>
                             </ul>
                         </li>
                     </ul>

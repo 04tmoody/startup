@@ -31,14 +31,14 @@ export default function App() {
   }, []); // Run this effect only once when the component mounts
 
   return (
+    <BrowserRouter>
     <div className='body'>
 
         <RetroHeader isLoggedIn={isLoggedIn}/>
         
         <Routes>
-            <Route path='/' element={<Login />} exact />
-            <Route path='/play' element={<Play />} />
-            <Route path='/scores' element={<Scores />} />
+            <Route path='/' element={<Main />} exact />
+            <Route path='/join' element={<Join />} />
             <Route path='/about' element={<About />} />
             <Route path='*' element={<h1>404: Not Found</h1>} />
         </Routes>
@@ -46,5 +46,6 @@ export default function App() {
         <RetroFooter />
     
     </div>
+    </BrowserRouter>
   );
 }
