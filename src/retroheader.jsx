@@ -113,7 +113,7 @@ export function RetroHeader({ isLoggedIn, controls }) {
                                         <button type="submit" className="submit">Login</button>
                                     </form>
                                 </li>
-                                <li><NavLink to="join"><i>Or Create Account</i></NavLink></li>
+                                <li><NavLink to="/join" activeClassName="active"><i>Or Create Account</i></NavLink></li>
                             </ul>
                         </li>
                     </ul>

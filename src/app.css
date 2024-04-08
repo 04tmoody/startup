@@ -10,6 +10,8 @@ header, footer {
     background-color: #f8f8f8;
     color: black;
     font-family: "Press Start 2P";
+    margin: 0;
+    padding: 0;
 }
 
 img {
@@ -32,6 +34,10 @@ ul {
     font-size: 20px;
 }
 
+.navbar-left {
+    margin-top: 12px;
+}
+
 .dropdown-toggle {
     color: gray;
     text-decoration: none;
@@ -50,6 +56,7 @@ ul {
   height: 25px;
   margin: 2px;
   padding: 0;
+  margin-right: 20px;
   vertical-align: middle;
   background-color: white;
 }
@@ -137,6 +144,10 @@ footer {
     width: 100%;
     padding: 10px 0;
     text-align: center;
+    font-size: small;
+}
+footer * {
+    text-decoration: none;
 }
 
 .lined {
