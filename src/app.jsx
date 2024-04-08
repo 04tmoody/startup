@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
-import RetroHeader from './retroheader';
-import RetroFooter from './retrofooter';
+import { RetroHeader } from './retroheader';
+import { RetroFooter } from './retrofooter';
+import { Main } from './main';
+import { Join } from './join';
+import { About } from './about';
 
 export default function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,10 +31,18 @@ export default function App() {
   }, []); // Run this effect only once when the component mounts
 
   return (
-    <div className='body bg-dark text-light'>
+    <div className='body'>
 
         <RetroHeader isLoggedIn={isLoggedIn}/>
-        App will display here
+        
+        <Routes>
+            <Route path='/' element={<Login />} exact />
+            <Route path='/play' element={<Play />} />
+            <Route path='/scores' element={<Scores />} />
+            <Route path='/about' element={<About />} />
+            <Route path='*' element={<h1>404: Not Found</h1>} />
+        </Routes>
+
         <RetroFooter />
     
     </div>
