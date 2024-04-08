@@ -49,14 +49,12 @@ export default function App() {
   return (
     <BrowserRouter>
     <div className='body' style={{backgroundImage: `url('${backgroundURI}')`}}>
-
-        <RetroHeader isLoggedIn={isLoggedIn}/>
         
         <Routes>
-            <Route path='/' element={<Main />} exact />
-            <Route path='/join' element={<Join />} />
-            <Route path='/about' element={<About />} />
-            <Route path='*' element={<h1>404: Not Found</h1>} />
+            <Route path='/' element={<><RetroHeader isLoggedIn={isLoggedIn} controls={true}/><Main /></>} exact />
+            <Route path='/join' element={<><RetroHeader isLoggedIn={isLoggedIn} controls={false}/><Join /></>} />
+            <Route path='/about' element={<><RetroHeader isLoggedIn={isLoggedIn} controls={false}/><About /></>} />
+            <Route path='*' element={<><RetroHeader isLoggedIn={isLoggedIn} controls={false}/><h1>404: Not Found</h1></>} />
         </Routes>
 
         <RetroFooter />

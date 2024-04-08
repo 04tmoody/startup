@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './app.css';
 
-export function RetroHeader({ isLoggedIn }) {
+export function RetroHeader({ isLoggedIn, controls }) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -89,7 +89,7 @@ export function RetroHeader({ isLoggedIn }) {
                             <img src="fulllogo.png" width="200" alt="Logo" />
                         </NavLink>
                     </div>
-                    <ul className="navbar-form navbar-left">
+                    <ul className="navbar-form navbar-left" style={{ display: controls ? "block" : "none" }}>
                         <li>
                             <form className="settings">
                                 <label htmlFor="color">Color:</label>
