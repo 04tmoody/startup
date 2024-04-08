@@ -32,6 +32,19 @@ ul {
     font-size: 20px;
 }
 
+.dropdown-toggle {
+    color: gray;
+    text-decoration: none;
+}
+.dropdown-toggle:hover {
+    color: #444444
+}
+
+.dropdown-menu {
+    position: fixed !important;
+    transform: translateX(-3em);
+}
+
 .square {
   width: 25px;
   height: 25px;
