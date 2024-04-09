@@ -97,14 +97,24 @@ For this deliverable I allow users to create accounts and login, and I stored th
 - **existing user** - Does not allow an account to be created if the user already exists.
 - **Use MongoDB to store credentials** - Stores both users and the board.
 - **Restricts functionality** - You cannot edit the board until you have logged in. This is checked on the backend.
-
+  
   
 ### WebSocket deliverable
-
+  
 For this deliverable I used webSocket to update the votes on the frontend in realtime.
-
+  
 - **Backend listens for WebSocket connection** - done!
 - **Frontend makes WebSocket connection** - done!
 - **Data sent over WebSocket connection** - Both log messages of joining/making x amount of edits/etc are sent.
 - **WebSocket data displayed** - All log messages are displayed in realtime. The board fetches the current board in realtime when an edit is made.
-- **Celebrated with Cheese** - done!
+- **Celebrated with Cheese** - done!  
+  
+  
+## React deliverable  
+  
+For this deliverable I converted the application over to use React and vite.
+
+- **Bundled and transpiled** - done using vite!  
+- **Components** - The header, footer, main page, about page, joining page, and board are all components.  
+- **Router** - Routing between main, joining, and about components.  
+- **Hooks** - Track changes in board, color, etc, and login state.  
