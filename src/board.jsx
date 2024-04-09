@@ -100,6 +100,10 @@ const Board = () => {
     };
 
     function handleDraw(event) {
+        if (!user) {
+            return
+        }
+
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
         const rect = canvas.getBoundingClientRect();
@@ -163,6 +167,18 @@ const Board = () => {
                 ctx.fillStyle = board[y][x];
                 ctx.fillRect(x * sizex, y * sizey, sizex + 1, sizey + 1);
             }
+        }
+        if (!user) {
+            ctx.globalAlpha = 0.8;
+            ctx.fillStyle = "black";
+            ctx.fillRect(canvas.width*0.2,canvas.height*0.3,canvas.width*0.6,canvas.height*0.4);
+            ctx.fillStyle = "white";
+            ctx.font = "bold 30px Arial";
+            ctx.textAlign = 'center';
+            ctx.fillText("Login to Edit!",canvas.width*0.5,canvas.height*0.5);
+            ctx.font = "15px Arial";
+            ctx.fillText("(Or create a free account)",canvas.width*0.5,canvas.height*0.6);
+            ctx.globalAlpha = 1.0;
         }
     }
 
