@@ -12,7 +12,9 @@ const Board = () => {
     const [recentEdits, setRecentEdits] = useState([]);
     const [board, setBoard] = useState(loadBoard(25));
     const [socket, setSocket] = useState(null);
-    const [color, setColor] = useState('#000000'); // Default color black
+    const [color, setColor] = useState('#000000');
+    const [frames, setFrames] = useState(0);
+    const [refresh, setRefresh] = useState(-1);
 
     useEffect(() => {
         configureWebSocket();
@@ -21,7 +23,7 @@ const Board = () => {
 
     useEffect(() => {
         drawBoard();
-    }, [board]);
+    }, [board,refresh]);
 
     useEffect(() => {
         const colorInput = document.getElementById('color');
@@ -59,6 +61,7 @@ const Board = () => {
 
     // Function to handle mouse down event
     const handleMouseDown = (event) => {
+        drawBoard();
         setMouseDown(true);
         handleDraw(event);
     };
@@ -94,10 +97,11 @@ const Board = () => {
         };
       }, []);
 
-    // Function to handle resizing of canvas
-    const handleResize = () => {
-        // Define your resizing logic here
-    };
+      useEffect(() => {
+        if (user && socket) {
+            sendLog("joins", user);
+        }
+    }, [user, socket]);
 
     function handleDraw(event) {
         if (!user) {
@@ -166,8 +170,11 @@ const Board = () => {
     }
 
     function drawBoard() {
+
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
+
+        const grid = document.getElementById("grid").checked;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -177,7 +184,9 @@ const Board = () => {
         for (let x = 0; x < board.length; x++) {
             for (let y = 0; y < board[x].length; y++) {
                 ctx.fillStyle = board[y][x];
+                ctx.strokeStyle = "black";
                 ctx.fillRect(x * sizex, y * sizey, sizex + 1, sizey + 1);
+                if (grid) ctx.strokeRect(x * sizex, y * sizey, sizex + 1, sizey + 1);
             }
         }
         if (!user) {
