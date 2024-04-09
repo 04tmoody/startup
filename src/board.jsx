@@ -123,6 +123,14 @@ const Board = () => {
             }
             
             if (board[y][x]!=color) {
+                if (edits==0) {
+                    sendLog("made their first edit",user);
+                } else if (edits==99) {
+                    sendLog("made 100 edits! Congrats!",user);
+                } else if (edits==999) {
+                    sendLog("made 1000 edits! Holy Guacamole!",user);
+                }
+                setEdits(edits+1);
                 const newBoard = [...board];
                 newBoard[y][x] = color;
                 setBoard(newBoard);
