@@ -21,7 +21,7 @@ async function loginOrCreate(endpoint,num="") {
 
 if (response.ok) {
     localStorage.setItem("username", username);
-    window.location.href = "index.html";
+    useHistory().push('/index.html');
 } else {
     document.querySelector("#error"+num).style.display="block";
 }
