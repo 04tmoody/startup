@@ -23,6 +23,10 @@ ul {
     list-style-type: none;
 }
 
+h1 {
+    font-family: "Press Start 2P";
+}
+
 .navbar-header {
     padding-right: 3em;
 }
@@ -172,6 +176,18 @@ footer * {
     height: calc(100vh - 200px);
 }
 
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    width: 100px;
+}
+
+.join > .submit {
+    margin-top: 30px;
+}
+
 .join {
     background-color: #f0f0f088;
     border: 3px solid #e0e0e0f0;
@@ -180,6 +196,7 @@ footer * {
     max-width: max-content;
     padding: 90px 20px;
     text-align: center;
+    margin-top: 25px;
 }
 
 /* About Page */
