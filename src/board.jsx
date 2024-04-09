@@ -112,6 +112,10 @@ const Board = () => {
         
         if (x >= 0 && x < board.length && y >= 0 && y < board.length) {
             if (eye) {
+                if (!eyed) {
+                    setEyed(true);
+                    sendLog("used the Eyedropper (hold the [i] key)",user);
+                }
                 const color = board[y][x];
                 setColor(color);
                 document.getElementById("color").value = color;
