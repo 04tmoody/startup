@@ -1,5 +1,5 @@
 import React from 'react';
-import './log.js';
+import Board from './board';
 
 export function Main() {
   return (
@@ -13,7 +13,7 @@ export function Main() {
         </div>
       </div>
       <div id="canvas-container">
-        <canvas id="canvas" width="400px" height="400px"></canvas>
+        <Board/>
       </div>
     </main>
   );
